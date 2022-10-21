@@ -1,9 +1,11 @@
 # [Information Density of Old East Slavic](https://github.com/GeorgStin/Information-Density-of-Old-East-Slavic/)
 
-This is a small Python program that:
-1. contains a [corpus of 83 Old East Slavic texts](https://github.com/GeorgStin/Information-Density-of-Old-East-Slavic#corpus-of-old-east-slavic-texts);
-2. separates text into [syllables](https://github.com/GeorgStin/Information-Density-of-Old-East-Slavic#syllable-separator);
-3. calculates [Shannon entropy (ShE) and information density (ID)](https://github.com/GeorgStin/Information-Density-of-Old-East-Slavic#shannon-entropy-and-information-density).
+This project attempts to create a new text corpus and to analyze information rates of its texts to identify works that are noticeably different from the average values. It is assumed that such terms as "complexity" or "uniqueness," often used by many authors to describe their research subjects, can be related to the information content of texts. This feature therefore can be considered as one more objective metric for text analysis. In particular, this project aims to calculate information rate of texts by using two entropies at the syllabic level.
+
+Concretely the goals of the project are:
+1. Building of a [corpus of Old East Slavic texts](https://github.com/GeorgStin/Information-Density-of-Old-East-Slavic#corpus-of-old-east-slavic-texts);
+2. Separating of texts  into [syllables](https://github.com/GeorgStin/Information-Density-of-Old-East-Slavic#syllable-separator);
+3. Calculating of [Shannon entropy (ShE) and information density (ID)](https://github.com/GeorgStin/Information-Density-of-Old-East-Slavic#shannon-entropy-and-information-density).
 
 ***
 
@@ -136,7 +138,7 @@ The total resuslts of the corpus represent the following values:
 
 >  **Corpus ShE:** 6.521871617192656  
 >  **Corpus ID:** 69638.71223146988   
->  **Corpus average ID:** 0.07023755764797653  
+>  **Corpus average ID:** 1.4432893726729508  
 
 The data obtained represent one more metric for possible comparisons of texts, especially speaking of them in such categories as "complexity" or "uniqueness". The script also collects all possible types of syllables and counts their number to get total values (corpus ShE/ID/avg ID). Thus, if necessary, it is possible to modify the script to solve other problems related to the concept of "text uniqueness" (for example, comparing uni/bigrams of some text with the rest of the corpus, etc.). Furthermore, it would also be interesting to measure ShE and ID without using a null marker at the beginning of each word, which would allow us to consider the across-word context ([Coupé et al. (2019, p. 7)](https://github.com/GeorgStin/Information-Density-of-Old-East-Slavic#references) rejected the idea because some of their text corpora only provided word frequencies and not raw texts). Another interesting topic for future research is dealing with different text sizes. It would be entertaining to correlate ShE, ID, and text lenghts. In the context of this question it is possible to divide the texts into separate sections of equal length (such an approach was taken in [Montemurro & Zanette's (2011)](https://github.com/GeorgStin/Information-Density-of-Old-East-Slavic#references) study).
 
