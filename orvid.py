@@ -1,5 +1,9 @@
 # -*- coding: utf-8 -*-
-
+import string
+import math
+import os
+import sys
+from collections import Counter
 
 ##############################################
 # 1. Reading the file
@@ -598,6 +602,7 @@ def get_id(unigrams, bigrams):
 
 ##############################################
 # Function that calls all other functions
+##############################################
 
 def run_script(filename):
 
@@ -639,32 +644,27 @@ def run_script(filename):
     global_bigrams = Counter(global_bigrams) + Counter(bigrams)
 
     # Print results: Filename, length, ShE, ID, average ID)
-    if text.endswith('.txt'):
+    if filename.endswith('.txt'):
         print(str(filename), length, ShE, ID, avg_id, sep='\t')
 
     else:
         print(str(file_name), length, ShE, ID, avg_id, sep='\t')
 
 
-###########################################################
+##############################################
 # Main program
-###########################################################
+##############################################
 
-if __name__ == "__main__":
-
-    import string
-    import math
-    import os
-    import sys
-    from collections import Counter
-
+def run_main():
     # SELECT YOUR TEXT OR FOLDER for calculating
     # e.g 'Corpus' for the whole folder with many texts
     # or 'test.txt' for the one text only
     text = 'Corpus'
 
     # Dicts for collecting of ngrams from all texts
+    global global_unigrams
     global_unigrams = Counter()
+    global global_bigrams
     global_bigrams = Counter()
 
     # Saving option (creates txt-file with results)
@@ -693,10 +693,14 @@ if __name__ == "__main__":
         # Results for whole corpus
         global_she = get_she(global_unigrams)  # ShE of the corpus
         global_id = abs(get_id(global_unigrams, global_bigrams))  # ID of the corpus
-        global_avg_id = global_id / sum(global_bigrams.values())  # avg ID of the corpus
+        global_avg_id = global_id / len(global_bigrams)  # avg ID of the corpus
         print('\nCorpus ShE:', global_she,
               '\nCorpus ID:', global_id,
               '\nCorpus average ID:', global_avg_id)
 
+
+if __name__ == "__main__":
+    run_main()
 else:
     print("Script can only run as a stand-alone.")
+
